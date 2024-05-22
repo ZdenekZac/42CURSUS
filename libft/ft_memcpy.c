@@ -1,39 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/21 14:30:27 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/05/22 16:52:57 by zdoskoci         ###   ########.fr       */
+/*   Created: 2024/05/22 16:43:39 by zdoskoci          #+#    #+#             */
+/*   Updated: 2024/05/22 17:14:37 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*p;
+	size_t	i;
+	char	*d;
+	char	*s;
 
-	p = (char *)s;
-	while (n > 0)
+	if (!dest)
+		return (NULL);
+	i = 0;
+	d = (char *)dest;
+	s = (char *)src;
+	while (i < n)
 	{
-		p[n - 1] = c;
-		n--;
+		d[i] = s[i];
+		i++;
 	}
-	return (s);
+	return (dest);
 }
 /*
 #include <stdio.h>
 int main() {
-	char s[] = "hello";
-	printf("%s\n", s);
-	ft_memset(s, 'B', 3);
-	printf("%s\n", s);
-	printf("%s\n", (char *)ft_memset(s, 'X', 5));
+    char s[] = "hello";
+	char d[6];
+    printf("source: %s\n", s);
+    printf("dest before: %s\n", d);
+    ft_memcpy(d,s,sizeof(s));
+    printf("dest after: %s\n", d);
 
     return (0);
 }
 //norminette -R CheckForbiddenSourceHeader
+//cc -Wall -Wextra -Werror
 */
