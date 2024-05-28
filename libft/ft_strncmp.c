@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 15:26:45 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/05/23 15:37:01 by zdoskoci         ###   ########.fr       */
+/*   Created: 2024/05/27 15:21:01 by zdoskoci          #+#    #+#             */
+/*   Updated: 2024/05/27 15:39:35 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-       #include <string.h>
-// void *ft_memmove(void *dest, const void *src, size_t n)
-// {
+#include "libft.h"
 
-// }
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
 
+	i = 0;
+	while (i < n)
+	{
+		if (s1[i] != s2[i] || !s1[i] || !s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+/*
 #include <stdio.h>
 int main() {
-    char s[] = "hellooo";
-	char d[20];
-    printf("source: %s\n", s);
-    printf("dest before: %p\n", d);
-    memmove(&d[0],&s[2],2);
-    printf("dest after: %s\n", d);
-	printf("source after: %s\n", s);
-    return (0);
+    char sr1[] = "abcde";
+    char sr2[] = "abcd";	
+    printf("%d\n", ft_strncmp(sr1, sr2, sizeof(sr1)));
+
+    return 0;
 }
+//norminette -R CheckForbiddenSourceHeader
+//cc -Wall -Wextra -Werror
+*/

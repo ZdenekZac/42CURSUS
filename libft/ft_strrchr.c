@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 16:56:28 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/05/27 12:25:14 by zdoskoci         ###   ########.fr       */
+/*   Created: 2024/05/27 14:43:39 by zdoskoci          #+#    #+#             */
+/*   Updated: 2024/05/27 15:19:29 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	while (i >= 0)
 	{
-		c += 32;
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i--;
 	}
-	return (c);
+	return (NULL);
 }
 /*
 #include <stdio.h>
 int main() {
-	int n = 'R';
-    printf("%c\n",ft_tolower(n));
-	printf("%c\n",ft_tolower('E'));
+    char src[] = "Hefllo!";
+    printf("%p\n", ft_strrchr(src, 'e'));
+    printf("%p\n", ft_strrchr(src, 'f'));
+	printf("%p\n", ft_strrchr(src, '!'));
+	printf("%p\n", ft_strrchr(src, '\0'));
+	printf("%p\n", ft_strrchr(src, 'a'));
 
-    return (0);
+    return 0;
 }
 //norminette -R CheckForbiddenSourceHeader
 //cc -Wall -Wextra -Werror
