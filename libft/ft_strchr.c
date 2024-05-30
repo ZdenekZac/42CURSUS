@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 13:35:14 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/05/27 14:43:01 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/05/29 21:30:22 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)str);
 	return (NULL);
 }
-
 /*
 #include <stdio.h>
 int main() {
@@ -36,6 +35,6 @@ int main() {
 
     return 0;
 }
-//norminette -R CheckForbiddenSourceHeader
-//cc -Wall -Wextra -Werror
 */
+//norminette -R CheckForbiddenSourceHeader
+//cc -Wall -Wextra -Werror ft_strchr.c

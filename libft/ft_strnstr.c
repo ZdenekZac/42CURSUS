@@ -6,12 +6,36 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:07:48 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/05/28 13:29:21 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/05/29 21:47:30 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+char
+	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	if (!haystack || !needle)
+		return (NULL);
+	if (!needle || !needle[0])
+		return ((char *)haystack);
+	i = 0;
+	while (haystack[i] && i < len)
+	{
+		j = 0;
+		while (haystack[i + j] && needle[j] && i + j < len
+			&& haystack[i + j] == needle[j])
+			j++;
+		if (!needle[j])
+			return ((char *)(haystack + i));
+		i++;
+	}
+	return (NULL);
+}
+/*
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
@@ -37,6 +61,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+*/
 /*
 #include <stdio.h>
 int main() {
@@ -48,6 +73,6 @@ int main() {
 
     return 0;
 }
-//norminette -R CheckForbiddenSourceHeader
-//cc -Wall -Wextra -Werror ft_strnstr.c
+// norminette -R CheckForbiddenSourceHeader
+// cc -Wall -Wextra -Werror ft_strnstr.c
 */
