@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+         #
+#    By: zac <zac@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/29 20:56:35 by zdoskoci          #+#    #+#              #
-#    Updated: 2024/05/30 18:47:31 by zdoskoci         ###   ########.fr        #
+#    Updated: 2024/06/04 00:04:15 by zac              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ SRCS            =   ft_isalnum.c ft_isprint.c ft_memcmp.c \
                     ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c ft_memcpy.c \
                     ft_memmove.c ft_strdup.c  ft_strlen.c  ft_strrchr.c \
                     ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
-                    ft_strjoin.c ft_strtrim.c
+                    ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
+					ft_strmapi.c ft_striteri.c ft_putchar_fd.c
 OBJS            = $(SRCS:.c=.o)
 BONUS           =   ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
                     ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-                    ft_lstmap.c ft_lstnew.c ft_lstsize.c
+                    ft_lstmap.c ft_lstnew.c ft_lstsize.c \
 BONUS_OBJS      = $(BONUS:.c=.o)
 CC              = gcc
 RM              = rm -f

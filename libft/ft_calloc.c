@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
@@ -31,6 +32,6 @@ int	main()
 	printf("%p\n", ft_calloc(5, sizeof(char)));
 	return (0);
 }
-*/
 // norminette -R CheckForbiddenSourceHeader
 // cc -Wall -Wextra -Werror ft_bzero.c ft_calloc.c
+*/
