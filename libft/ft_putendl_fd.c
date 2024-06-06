@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:26:11 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/06/05 11:32:17 by zdoskoci         ###   ########.fr       */
+/*   Created: 2024/06/04 17:47:19 by zac               #+#    #+#             */
+/*   Updated: 2024/06/05 11:30:08 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putendl_fd(char *s, int fd)
 {
-	void	*ptr;
-
-	if (nmemb != 0 && size > (size_t)-1 / nmemb)
-		return (NULL);
-	ptr = (void *)malloc(nmemb * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero (ptr, nmemb * size);
-	return (ptr);
+	if (s)
+	{
+		while (*s)
+			write(fd, s++, 1);
+		write(fd, "\n", 1);
+	}
 }
 /*
-#include <stdio.h>
-int	main()
+int main()
 {
-	printf("%p\n", ft_calloc(5, sizeof(char)));
+	ft_putendl_fd("world0", 0);
+	ft_putendl_fd("world1", 1);
+	ft_putendl_fd("world2", 2);
+	// not in terminal
+	ft_putendl_fd("world3", 3);
 	return (0);
 }
-// norminette -R CheckForbiddenSourceHeader
-// cc -Wall -Wextra -Werror ft_bzero.c ft_calloc.c
 */

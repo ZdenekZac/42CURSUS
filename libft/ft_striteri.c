@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 16:26:11 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/06/05 11:32:17 by zdoskoci         ###   ########.fr       */
+/*   Created: 2024/06/03 22:53:03 by zac               #+#    #+#             */
+/*   Updated: 2024/06/05 11:41:22 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	void	*ptr;
+	unsigned int	i;
 
-	if (nmemb != 0 && size > (size_t)-1 / nmemb)
-		return (NULL);
-	ptr = (void *)malloc(nmemb * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero (ptr, nmemb * size);
-	return (ptr);
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
 /*
+void	ft_helper(unsigned int i, char * c)
+{
+	if (i % 1 == 0)
+		*c -= 32; 
+}
 #include <stdio.h>
 int	main()
 {
-	printf("%p\n", ft_calloc(5, sizeof(char)));
+	char str[] = "hello";
+	ft_striteri(str, ft_helper);
+	printf("%s", str);
 	return (0);
 }
-// norminette -R CheckForbiddenSourceHeader
-// cc -Wall -Wextra -Werror ft_bzero.c ft_calloc.c
 */
