@@ -6,7 +6,7 @@
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:42:38 by zac               #+#    #+#             */
-/*   Updated: 2024/06/07 11:54:43 by zac              ###   ########.fr       */
+/*   Updated: 2024/06/09 17:57:20 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ void	ft_pointer(size_t pointer, int *length)
 int main()
 {
 	int length = 0;
-	ft_number(-2147483648, &length);
+	ft_number(21989448, &length);
 	return (0);
 }
