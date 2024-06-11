@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:42:38 by zac               #+#    #+#             */
-/*   Updated: 2024/06/11 12:39:28 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:24:43 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void	ft_pointer(size_t pointer, int *length)
 
 	base_character = "0123456789abcdef";
 	i = 0;
-	write(1, "0x", 2);
-	(*length) += 2;
 	if (pointer == 0)
 	{
-		write(1, "0", 1);
-		(*length)++;
+		write(1, "0x0", 3);
+		(*length) += 3;
 		return ;
 	}
+	write(1, "0x", 2);
+	(*length) += 2;
 	while (pointer != 0)
 	{
 		string[i] = base_character[pointer % 16];
@@ -77,7 +77,8 @@ void	ft_hexdcml(unsigned int x, int *len, char x_X)
 	i = 0;
 	if (x == 0)
 	{
-		ft_putchar_length('0', len);
+		write(1, "0", 1);
+		(*len)++;
 		return ;
 	}
 	while (x != 0)
@@ -103,6 +104,7 @@ int main()
 	int length = 0;
 	size_t p = 0;
 	ft_pointer(p, &length);
+	ft_putchar_length('\n', &length); 
 	return (0);
 }
 */

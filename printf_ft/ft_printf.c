@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:15:20 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/06/11 12:50:11 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:07:55 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,15 @@ int	ft_printf(const char *string, ...)
 	va_end(args);
 	return (length);
 }
-// int main()
-// {
-// 	char *s = "hello";
-// 	ft_printf("%s", s);
-// 	return (0);
-// }
-// // cc -Wall -Wextra -Werror ft_printf.c ft_words.c ft_numbers.c 
+/*
+#include <limits.h>
+int main()
+{
+	//char *s = "hello";
+	ft_printf(" %p %p \n", INT_MIN, INT_MAX);
+	ft_printf(" %p %p \n", ULONG_MAX, -ULONG_MAX);
+	ft_printf(" %p %p \n", 0, 0);
+	return (0);
+}
+// cc -Wall -Wextra -Werror ft_printf.c ft_words.c ft_numbers.c 
+*/
