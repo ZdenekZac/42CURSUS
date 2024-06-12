@@ -1,32 +1,53 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-void print_strings(int count, ...)
-{
-	va_list args;
-	va_start(args, count);
+// int	average(int n, ...)
+// {
+// 	va_list ap;
+// 	int	total;
+// 	int	i;
 
-	// if (count > 0)
-	// {
-	// 	const char *first = va_arg(args, const char*);
-	// 	printf("1: %s\n", first);
-	// }
-	// if (count > 1)
-	// {
-	// 	const char *second = va_arg(args, const char*);
-	// 	printf("2: %s\n", second);
-	// }
-	// if (count > 2)
-		const char *first = va_arg(args, const char*);
-		const char *second = va_arg(args, const char*);
-		const char *third = va_arg(args, const char*);
-		printf("%s %s %s\n", first, second, third);
-	
-	va_end(args);
+// 	va_start(ap, n);
+// 	total = 0;
+// 	i = 0;
+// 	while (i < n)
+// 	{
+// 		total += va_arg(ap, int);
+// 		i++;
+// 	}
+// 	return (total / n);
+// }
+
+// int main() {
+// 	int	avg_age;
+// 	avg_age = average(3, 10, 15, 20);
+// 	printf("result: %d", avg_age);
+
+//     return 0;
+// }
+
+int	ft_avg(int n, ...)
+{
+	va_list		ap;
+	int			total;
+	int			i;
+
+	va_start(ap, n);
+	total = 0;
+	i = 0;
+
+	while (i < n)
+	{
+		total = total + va_arg(ap, int);
+		i++;
+	}
+	return (total / n);
 }
-int main() {
-    // print_strings(1, "Hello1");
-    // print_strings(2, "Hello2", "World2");
-    print_strings(3, "Hello3", "World3", "!");
-    return 0;
+
+int main()
+{
+	int avg;
+	avg = ft_avg(3, 10, 15, 20);
+	printf("result %d", avg);
+	return 0;
 }
