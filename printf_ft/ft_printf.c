@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:15:20 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/06/11 15:07:55 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:21:21 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,30 @@ int	ft_printf(const char *string, ...)
 }
 /*
 #include <limits.h>
+#include <stdio.h>
 int main()
 {
-	//char *s = "hello";
 	ft_printf(" %p %p \n", INT_MIN, INT_MAX);
 	ft_printf(" %p %p \n", ULONG_MAX, -ULONG_MAX);
 	ft_printf(" %p %p \n", 0, 0);
+	ft_printf(" %s \n", "----------");
+
+    int num = 42;
+	float pi = 3.14159;
+    char *str = "hello";
+    // Padding with spaces
+    printf("'%10d'\n", num);  // '        42'
+    printf("'%-10d'\n", num); // '42        '
+    // Padding with zeros
+    printf("'%010d'\n", num); // '0000000042'
+    // Strings with padding
+    printf("'%10s'\n", str);  // '     hello'
+    printf("'%-10s'\n", str); // 'hello     '
+	printf("'%-10.4f'\n", pi); // '3.14      '
+	ft_printf(" %s \n", "----------");
+		ft_printf(" %c \n", '%');
+		printf(" %c \n", '%');
+		
 	return (0);
 }
 // cc -Wall -Wextra -Werror ft_printf.c ft_words.c ft_numbers.c 

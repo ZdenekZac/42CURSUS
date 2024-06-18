@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:42:38 by zac               #+#    #+#             */
-/*   Updated: 2024/06/12 12:41:55 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:30:23 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	ft_pointer(size_t pointer, int *length)
 	i = 0;
 	if (pointer == 0)
 	{
-		write(1, "0x0", 3);
-		(*length) += 3;
+		write(1, "(nil)", 5);
+		(*length) += 5;
 		return ;
 	}
 	write(1, "0x", 2);
@@ -108,4 +108,3 @@ int main()
 	return (0);
 }
 */
-
