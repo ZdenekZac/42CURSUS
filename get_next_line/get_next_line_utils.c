@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:54:43 by zac               #+#    #+#             */
-/*   Updated: 2024/07/17 18:57:20 by zac              ###   ########.fr       */
+/*   Updated: 2024/07/18 20:41:39 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ int	len_to_newline(t_list *list)
 	len = 0;
 // LIST != NULL
 	while (list)
+	
 	{
 		i = 0;
-		while (list->str_buf[if ()
+		while (list->str_buf[i] && i < BUFFER_SIZE)
 		{
-			/* code */
+			if (list->str_buf[i] == '\n')
+				return (1);
+			i++;
 		}
-		else
-		{
-			/* code */
-		}
-		])
+		list = list->next;
 	}
+	return (0);
 }

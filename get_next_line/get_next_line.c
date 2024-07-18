@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 18:55:09 by zac               #+#    #+#             */
-/*   Updated: 2024/07/17 18:53:40 by zac              ###   ########.fr       */
+/*   Updated: 2024/07/18 13:41:37 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	*get_line(t_list *list)
 		return (NULL);
 	
 // COPY THE STRING IN THE BUFFER AND RETURN IT
-copy_str(list, next_str);
-return (next_str);
+	copy_str(list, next_str);
+	return (next_str);
 }
 
 void	append(t_list **list, char *buf)
