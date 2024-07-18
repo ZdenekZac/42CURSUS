@@ -26,7 +26,7 @@ hovno2->cislo = 22;
 hovinko *current = hovno1;
 while (current)
 {
-	printf("%d\n",current->cislo);
+	printf("result: %d\n",current->cislo);
 	current = current->dalsi;
 }
 	return (0);
