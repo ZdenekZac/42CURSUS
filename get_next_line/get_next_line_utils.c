@@ -6,32 +6,43 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:54:43 by zac               #+#    #+#             */
-/*   Updated: 2024/07/18 20:41:39 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:03:08 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	len_to_newline(t_list *list)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	str = (char *)malloc(sizeof (*s) * (len + 1));
+	if (str == 0)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while(s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
+}
+
+int	*ft_strlen(const char *str)
 {
 	int	i;
-	int len;
 
-	if (list == NULL)
-		return (0);
-	len = 0;
-// LIST != NULL
-	while (list)
-	
-	{
-		i = 0;
-		while (list->str_buf[i] && i < BUFFER_SIZE)
-		{
-			if (list->str_buf[i] == '\n')
-				return (1);
-			i++;
-		}
-		list = list->next;
-	}
-	return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
+

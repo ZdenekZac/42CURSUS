@@ -3,29 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:04:46 by zac               #+#    #+#             */
-/*   Updated: 2024/07/16 18:54:42 by zac              ###   ########.fr       */
+/*   Updated: 2024/07/23 14:14:45 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
-
-# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-// NODE OF THE LINKED LIST
-typedef struct s_list
-{
-	char			*str_buf;
-	struct s_list	*next;
-}	t_list;
+int		ft_strlen(const char *str);
+char	*ft_strchr(const char *s, int i);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*get_next_line(int fd);
 
 #endif
