@@ -14,6 +14,7 @@ int main(){
 hovinko *hovno1 = malloc(sizeof(hovinko));
 hovinko *hovno2 = malloc(sizeof(hovinko));
 hovinko *hovno3 = malloc(sizeof(hovinko));
+hovinko *hovno4 = malloc(sizeof(hovinko));
 
 if (hovno1 == NULL || hovno2 == NULL || hovno3 == NULL) 
 {
@@ -24,10 +25,12 @@ if (hovno1 == NULL || hovno2 == NULL || hovno3 == NULL)
 hovno1->cislo = 11;
 hovno2->cislo = 22;
 hovno3->cislo = 33;
+hovno4->cislo = 44;
 
  hovno1->dalsi = hovno2;
  hovno2->dalsi = hovno3;
- hovno3->dalsi = NULL;
+ hovno3->dalsi = hovno4;
+ hovno4->dalsi = NULL;
 
 
 hovinko *current = hovno1;
