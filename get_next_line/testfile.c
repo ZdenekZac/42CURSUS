@@ -6,93 +6,111 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:18:10 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/07/15 19:41:11 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/07/24 19:02:26 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h> 
 
-// EXAMPLE 1)
+void	ft_bzero(void *s, size_t n)
+{
+	char	*p;
 
-// int main()
-// {
-// 	int fd;
-
-// 	fd = open("file.txt", O_RDWR | O_CREAT );
-	
-// 	//printf("fd of file: %d\n ", fd);
-// 	dup2(3, 1);
-// 	write(1, "hellooo", 7);
-
-// 	return (0);
-// }
-
-// EXAMPLE 2)
-
-int main(){
-	int		fd2;
-	char	buf[256];
-	int		chars_read;
-	
-	fd2 = open("file.txt", O_RDONLY);
-
-	while((chars_read = read(fd2, buf, 10)))
+	p = (char *)s;
+	while (n > 0)
 	{
-		buf[chars_read] = '\0';
-		printf("buf-> %s\n", buf);
+		*p++ = 0;
+		n--;
 	}
 }
 
-// EXAMPLE 3) ---STATIC VARIABLE---
+size_t	ft_strlen(const char *s)
+{
+	int	i;
 
-// void func() {
-//     static int count = 0; // This is initialized only once.
-//     count++;              // Increment the value of count.
-//     printf("%d\n", count); // Print the current value of count.
-// }
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
+}
 
-// int main() {
-//     func(); // First call to func, count is 1
-//     func(); // Second call to func, count is 2
-//     func(); // Third call to func, count is 3
-//     return 0;
-// }
 
-// EXAMPLE 4)
+char	*ft_strcpy(char *dest, const char *src)
+{
+	int	i;
 
-// #include <stdio.h>
-    
-// typedef struct Person{
-//     char name[50];
-//     int age;
-//     float height;
-// } Person1;
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
 
-// int main() {
-//     struct Person person1;
-// 	Person1 person2;
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-// 	    strcpy(person2.name, "eeee");
-//     person2.age = 3;
-//     person2.height = 9;
+	i = 0;
+	j = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		str[i + j] = s2[j];
+		j++;
+	}
+	str[i + j] = '\0';
+	return (str);
+}
 
-//     //---ASSIGN VALUES TO MEMBERS---
-//     strcpy(person1.name, "John Doe");
-//     person1.age = 30;
-//     person1.height = 5.9;
+int main()
+{
+	int		fd;
+	char	*buf; //get rid of 100 and malloc instead
+	int		chars_read;
+	int		bufSize;
+	char	*storage;
+	char	testString[50];	
+	char	finalString[50];
+	char	test1[]="hello";
+	char	test2[]="world";
+	printf("strjoin: %s\n",ft_strjoin(testString, test2));
 
-//     //---ACCES AND PRINT MEMBERS---
-//     printf("Name: %s\n", person1.name);
-//     printf("Age: %d\n", person1.age);
-//     printf("Height: %.1f\n", person1.height);
-// 	    printf("Name: %s\n", "----------------");
+	// char test1[15];
+	// char test2[] = "world";
+	// ft_strlcpy(test1, test2, sizeof test2);
+	// printf("%s",test1);
 
-// 	    printf("Name: %s\n", person2.name);
-//     printf("Age: %d\n", person2.age);
-//     printf("Height: %.1f\n", person2.height);
+	// bufSize = 12;
+	// buf  = malloc(sizeof(char) * (bufSize + 1));
+	// fd = open("test2.txt", O_RDONLY);
 
-//     return 0;
-// }
+	// while((chars_read = read(fd, buf, bufSize)))
+	// {
+	// 	ft_strcpy(testString, buf);
+	// 	//printf("%s", testString);
+	// 	ft_strjoin(finalString,testString);
+	// 	printf("%s", finalString);
+	// 	ft_bzero(buf,13);
+	// }
+
+	return (0);
+}
+//valgrind --leak-check=full ./a.out
