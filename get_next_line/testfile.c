@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testfile.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:18:10 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/07/24 19:02:26 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/07/25 00:04:59 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,29 +88,28 @@ int main()
 	int		bufSize;
 	char	*storage;
 	char	testString[50];	
-	char	finalString[50];
+	char	*finalString;
 	char	test1[]="hello";
 	char	test2[]="world";
-	printf("strjoin: %s\n",ft_strjoin(testString, test2));
+	char	test3[]="again";
 
-	// char test1[15];
-	// char test2[] = "world";
-	// ft_strlcpy(test1, test2, sizeof test2);
-	// printf("%s",test1);
-
-	// bufSize = 12;
-	// buf  = malloc(sizeof(char) * (bufSize + 1));
-	// fd = open("test2.txt", O_RDONLY);
-
-	// while((chars_read = read(fd, buf, bufSize)))
-	// {
-	// 	ft_strcpy(testString, buf);
-	// 	//printf("%s", testString);
-	// 	ft_strjoin(finalString,testString);
-	// 	printf("%s", finalString);
-	// 	ft_bzero(buf,13);
-	// }
-
+		// finalString = ft_strjoin(test1,test2);
+		// printf("%s", finalString);
+		// finalString = ft_strjoin(finalString,test2);
+		// printf("%s", finalString);
+	
+	bufSize = 12;
+	buf  = malloc(sizeof(char) * (bufSize + 1));
+	fd = open("test2.txt", O_RDONLY);
+	finalString = malloc(sizeof(char) * 50);
+	//while((chars_read = read(fd, buf, bufSize)))
+	while((chars_read = read(fd, buf, bufSize)))
+	{
+		finalString = ft_strjoin(finalString, buf);
+		//ft_strcpy(testString, buf);
+		printf("%s\n", finalString);
+		ft_bzero(buf,13);
+	}
 	return (0);
 }
 //valgrind --leak-check=full ./a.out
