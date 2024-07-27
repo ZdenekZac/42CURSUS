@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testfile.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:18:10 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/07/25 18:29:37 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/07/27 17:00:41 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ size_t	ft_strlen(const char *s)
 }
 
 
-// char	*ft_strcpy(char *dest, const char *src)
-// {
-// 	int	i;
+char	*ft_strcpy(char *dest, const char *src)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (src[i] != '\0')
-// 	{
-// 		dest[i] = src[i];
-// 		i++;
-// 	}
-// 	dest[i] = '\0';
-// 	return (dest);
-// }
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -88,27 +88,31 @@ int main()
 	int		chars_read;
 	int		bufSize;
 	char	*finalString;
-	char	*temp;
 
-	bufSize = 15;
+
+	bufSize = 3;
 	buf  = malloc(sizeof(char) * (bufSize + 1));
-	fd = open("test2.txt", O_RDONLY);
+	if (!buf)
+		perror("")
+	fd = open("test.txt", O_RDONLY);
 	//fd = 1;
 	finalString = malloc(sizeof(char) * 50);
+	finalString[0] = '\0';
 	//while((chars_read = read(fd, buf, bufSize)))
 	while((chars_read = read(fd, buf, bufSize)))
 	{
-		finalString = ft_strjoin(finalString, buf);
-		temp = finalString;
+		char *temp;
+		buf[chars_read] = '\0';
+		temp = ft_strjoin(finalString, buf);
 		free(finalString);
-		printf("%s\n", buf);
-		printf("%p\n", temp);
-		ft_bzero(buf,16);
+		finalString = temp;
+		printf("before: %s\n", finalString);
+		printf("%s\n", temp);
+		// printf("after: %s\n", finalString);
+		ft_bzero(buf,4);
 	}
-		printf("finalString: %p\n", temp);
+		printf("finalString:\n %s", finalString);
 	free(buf);
-
-
 	return (0);
 }
 //valgrind --leak-check=full ./a.out 
