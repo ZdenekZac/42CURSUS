@@ -6,7 +6,7 @@
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:18:10 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/07/27 17:00:41 by zac              ###   ########.fr       */
+/*   Updated: 2024/07/27 17:59:23 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,26 +93,54 @@ int main()
 	bufSize = 3;
 	buf  = malloc(sizeof(char) * (bufSize + 1));
 	if (!buf)
-		perror("")
+	{
+		perror("failed to malloc buf");
+		return (1);
+	}
 	fd = open("test.txt", O_RDONLY);
-	//fd = 1;
+	if (fd == -1)
+	{
+		perror("failded to open file-(fd) dude!");
+		free(buf);
+		return (1);
+	}
 	finalString = malloc(sizeof(char) * 50);
+	if(!finalString)
+	{
+		perror("finalString failed bro!");
+		free(buf);
+		close(fd);
+		return (1);
+	}
 	finalString[0] = '\0';
-	//while((chars_read = read(fd, buf, bufSize)))
-	while((chars_read = read(fd, buf, bufSize)))
+
+	while((chars_read = read(fd, buf, bufSize)) > 0)
 	{
 		char *temp;
 		buf[chars_read] = '\0';
 		temp = ft_strjoin(finalString, buf);
+		if (!temp)
+		{
+			perror("failed to join strings-(temp)");
+			free(finalString);
+			free(buf);
+			close(fd);
+			return (1);
+		}
 		free(finalString);
 		finalString = temp;
 		printf("before: %s\n", finalString);
 		printf("%s\n", temp);
-		// printf("after: %s\n", finalString);
-		ft_bzero(buf,4);
+		ft_bzero(buf, bufSize + 1);
 	}
-		printf("finalString:\n %s", finalString);
+	if (chars_read == -1)
+	{
+		perror("Failed to read file (chars_read)!");
+	}
+
+	printf("finalString:\n %s", finalString);
 	free(buf);
+	close(fd);
 	return (0);
 }
 //valgrind --leak-check=full ./a.out 
