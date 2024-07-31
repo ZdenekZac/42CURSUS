@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:04:46 by zac               #+#    #+#             */
-/*   Updated: 2024/07/29 16:05:08 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/07/31 20:06:42 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
+#  define BUFFER_SIZE 6
 # endif
 
 # include <stdlib.h>
@@ -23,6 +23,7 @@
 # include <stdio.h>
 # include <string.h> 
 
+char	*ft_strchr(const char *str, int c);
 char	*get_next_line(int fd);
 char	*read_file(int fd, char *buffer);
 void	ft_bzero(void *s, size_t n);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 18:55:09 by zac               #+#    #+#             */
-/*   Updated: 2024/07/29 17:44:50 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:53:25 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 // 	char	*new_read_buffer;
 // 	if (!buffer)
 // }
+
+char	*ft_strchr(const char *str, int c)
+{
+	while (*str)
+	{
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
+	}
+	if (c == '\0')
+		return ((char *)str);
+	return (NULL);
+}
 
 char	*get_next_line(int fd)
 {
@@ -31,7 +44,7 @@ char	*get_next_line(int fd)
 	{
 		return (NULL);
 	}
-	if (newLine == '\0')
+	if (newLine == NULL)
 	{
 		newLine = malloc(sizeof(char) * 1);
 		newLine[0] = '\0';
@@ -40,7 +53,7 @@ char	*get_next_line(int fd)
 	while((chars_read = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[chars_read] = '\0';
-		temp = ft_strjoin(newLine, buf);
+		//temp = ft_strjoin(newLine, buf);
 		if (!temp)
 		{	
 			if (newLine)
