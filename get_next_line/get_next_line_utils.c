@@ -6,43 +6,107 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:54:43 by zac               #+#    #+#             */
-/*   Updated: 2024/07/30 16:22:27 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/01 18:30:32 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *ft_strchr(const char *s, int c) {
-    while (*s) {
-        if (*s == (char)c)
-            return ((char *)s);
-        s++;
-    }
-    if (c == '\0')
-        return ((char *)s);
-    return (NULL);
+void	ft_bzero(void *s, size_t n)
+{
+	char	*p;
+
+	p = (char *)s;
+	while (n > 0)
+	{
+		*p++ = 0;
+		n--;
+	}
 }
 
-char *ft_strdup(const char *s1) {
-    char *copy;
-    size_t len = strlen(s1);
+size_t	ft_strlen(const char *s)
+{
+	int	i;
 
-    copy = (char *)malloc((len + 1) * sizeof(char));
-    if (!copy)
-        return (NULL);
-    strcpy(copy, s1);
-    return (copy);
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }
 
-char *ft_strjoin(char const *s1, char const *s2) {
-    char *joined;
-    size_t len1 = strlen(s1);
-    size_t len2 = strlen(s2);
-
-    joined = (char *)malloc((len1 + len2 + 1) * sizeof(char));
-    if (!joined)
-        return (NULL);
-    strcpy(joined, s1);
-    strcat(joined, s2);
-    return (joined);
+char	*ft_strchr(const char *str, int c)
+{
+	while (*str)
+	{
+		if (*str == (char)c)
+			return ((char *)str);
+		str++;
+	}
+	if (c == '\0')
+		return (NULL);
+	return (NULL);
 }
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	i = 0;
+	j = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		str[i + j] = s2[j];
+		j++;
+	}
+	str[i + j] = '\0';
+
+	return (str);
+}
+
+char	*ft_substr(char *s, int len)
+{
+	char	*start;
+	int		i;
+
+	i = 0;
+	while (len > 0)
+	{
+		start[i] = s[i];
+		i++;
+		len--;
+	}
+	return (start);
+}
+
+char	*ft_clear_line(char *newline)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	while (newline[i] != '\n')
+		i++;
+	line = malloc(sizeof(char) * (i + 2));
+	if (!line)
+		return (NULL);
+	ft_bzero(line, i + 2);
+	line = ft_substr(newline, i);
+	line[i + 1] = '\n';
+	line[i + 2] = '\0';
+
+	return (line);
+}
+
+// dodelat zbytek od '\n' dozadu - zkopiruj ft_clear_line a modifikuj !!!
