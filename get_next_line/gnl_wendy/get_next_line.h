@@ -5,34 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 13:04:46 by zac               #+#    #+#             */
-/*   Updated: 2024/08/02 15:41:01 by zdoskoci         ###   ########.fr       */
+/*   Created: 2024/06/16 13:53:25 by vemichal          #+#    #+#             */
+/*   Updated: 2024/08/02 18:57:19 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <stddef.h>
+
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 10
 # endif
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <string.h> 
-
-char	*ft_clear_line(char *newline);
 char	*get_next_line(int fd);
-void	ft_bzero(void *s, size_t n);
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_get_rest(char *buffer);
+char	*ft_get_line(char *buffer);
+char	*read_file(int fd, char *buffer);
 char	*ft_strchr(const char *str, int c);
-char	*ft_substr_start(char *s, int len);
-char	*ft_rest_start(char *temp);
-char	*ft_read_file(int fd, char *buffer);
-
-
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_free(char *buffer, char *new_read_buffer);
+void	*ft_calloc(size_t nitems, size_t size);
+void	ft_bzero(void *s, size_t n);
+size_t	ft_strlen(const char *str);
 
 #endif
