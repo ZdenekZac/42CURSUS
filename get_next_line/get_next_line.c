@@ -6,22 +6,16 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 18:55:09 by zac               #+#    #+#             */
-/*   Updated: 2024/08/01 18:27:50 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:47:19 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// char	*read_file(int fd, char *buffer)
-// {
-// 	char	*new_read_buffer;
-// 	if (!buffer)
-// }
-
 char	*get_next_line(int fd)
 {
 	char		*buf;
-	static char	*rest;
+	//static char	*rest;
 	char		*line;
 	char		*newLine;
 	int			chars_read;
@@ -48,9 +42,10 @@ char	*get_next_line(int fd)
 			break ;
 	}
 	newLine = temp;	
-	free(buf);
 
 	line = ft_clear_line(newLine);
-	printf("linetest:%s\n", line);
+	printf("linetests ---%s---\n", line);
+	free(buf);
+	free(temp);
 	return (line);
 }

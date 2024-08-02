@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:54:43 by zac               #+#    #+#             */
-/*   Updated: 2024/08/01 18:30:32 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:33:33 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,10 @@ char	*ft_substr(char *s, int len)
 {
 	char	*start;
 	int		i;
+
+	start = malloc(sizeof (char) * len);
+	if (!start)
+		return (NULL);
 
 	i = 0;
 	while (len > 0)

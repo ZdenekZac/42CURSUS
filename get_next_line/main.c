@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:24:22 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/08/01 18:28:55 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/02 12:47:43 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
 	int fd = open("test.txt", O_RDONLY);
 
-		printf("getNextLine is:%s", get_next_line(fd));
+		printf("getNextLine is:'%s'", get_next_line(fd));
 		//free(line);  // Don't forget to free the line to avoid memory leaks
 
 	return (0);
