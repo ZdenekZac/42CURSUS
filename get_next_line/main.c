@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:24:22 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/08/02 19:16:13 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/03 22:37:25 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 int main()
 {
 // T E S T ---- 1:
-	int fd = open("test.txt", O_RDONLY);
-	char *line;
-	line = get_next_line(fd);
-	printf("main - line: --%s--\n", line);
+	// int fd = open("test.txt", O_RDONLY);
+	// char *line;
+	// line = get_next_line(fd);
+	// printf("main - line: --%s--\n", line);
 	
 // T E S T ---- 2:	
-	// int fd = 0;
-	// char *line;
-	// while(fd == 0)
-	// {
-	// line = get_next_line(fd);
-    // printf("%s\n", line);
-	// }
+	int fd = 0;
+	char *line;
+	while(fd == 0)
+	{
+	line = get_next_line(fd);
+    printf("%s\n", line);
+	}
 
 // T E S T ---- 3;
 	// int fd = open("test.txt", O_RDONLY);
@@ -44,4 +44,4 @@ int main()
 	return (0);
 }
 
-// cc -Wall -Wextra -Werror  get_next_line.c get_next_line.h get_next_line_utils.c main.c  asf
+// cc -Wall -Wextra -Werror  get_next_line.c get_next_line.h get_next_line_utils.c main.c 
