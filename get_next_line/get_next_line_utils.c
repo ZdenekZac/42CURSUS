@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:54:43 by zac               #+#    #+#             */
-/*   Updated: 2024/08/02 18:37:53 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:36:38 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,27 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	str[i + j] = '\0';
 
+		printf("STR.JOIN: %s\n", str);
 	return (str);
 }
 
-char	*ft_substr_start(char *s, int len)
+char    *ft_substr_start(char *s, int len)
 {
-	char	*start;
-	int		i;
+    char    *start;
+    int     i;
 
-	start = malloc(sizeof (char) * len);
-	if (!start)
-		return (NULL);
+    start = malloc(sizeof(char) * (len + 1));
+    if (!start)
+        return (NULL);
 
-	i = 0;
-	while (len > 0)
-	{
-		start[i] = s[i];
-		i++;
-		len--;
-	}
-	return (start);
+    i = 0;
+    while (i < len)
+    {
+        start[i] = s[i];
+        i++;
+    }
+    start[i] = '\0';
+    return (start);
 }
 
 char	*ft_clear_line(char *temp)
@@ -100,21 +101,18 @@ char	*ft_clear_line(char *temp)
 	int				i;
 
 	i = 0;
-	while (temp[i] != '\n')
+	while (temp[i] != '\n' && temp[i] != '\0')
 	{
 		i++;
 	}
-	line = malloc(sizeof(char) * (i + 2));   
-	if (!line)
-		return (NULL);
-	ft_bzero(line, i + 2);
+
 	line = ft_substr_start(temp, i);
 	line[i + 1] = '\n';
 	line[i + 2] = '\0';
 
+	printf("CLEAR_LINE: %s\n", line);
 	return (line);
 }
-
 
 char	*ft_rest_start(char *buff)
 {
@@ -122,14 +120,24 @@ char	*ft_rest_start(char *buff)
 	int		i;
 
 	i = 0;
-	while (buff[i] != '\n' && buff[i] != '\0') {
+	while (buff[i] != '\n' && buff[i] != '\0') 
+	{
 		i++;
 	}
-	if (buff[i] == '\n') {
+	if (buff[i] == '\n') 
+	{
 		rest_start = &buff[i + 1];
-	} else {
+		i++;
+		if (buff[i] == '\0')
+		{
+			free (buff);
+			return (NULL);
+		}
+	} else 
+	{
 		rest_start = NULL;
 	}
+	printf("REST.START: %s\n", rest_start);
 	return (rest_start);
 }
 
@@ -140,14 +148,15 @@ char	*ft_read_file(int fd, char *buffer)
 
 	chars_read = 1;
 	if (buffer == NULL) 
-		buffer = (char *)malloc(1);
-	if (!buffer) 
+	{
+		buffer = (char *)malloc(sizeof(char*)*1);
+		buffer[0] = '\0';
+	}
+	if (!buffer)
 		return NULL;
-	buffer[0] = '\0';
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-    buf[0] = '\0';
 	while(chars_read > 0)
 	{
 		ft_bzero(buf, BUFFER_SIZE);
@@ -159,11 +168,12 @@ char	*ft_read_file(int fd, char *buffer)
 		}
 		buf[chars_read] = '\0';
 		buffer = ft_strjoin(buffer, buf);
+		
 		if(ft_strchr(buf, '\n') != NULL) 
 			break ;
 	}
+	printf("READ.FILE-BUF: %s\n", buf);
+	printf("READ.FILE-BUFFER: %s\n", buffer);
 	free(buf);
 	return (buffer);
 }
-
-// dodelat zbytek od '\n' dozadu - zkopiruj ft_clear_line a modifikuj !!!
