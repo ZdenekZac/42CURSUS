@@ -1,3 +1,6 @@
+
+//////////////////////
+/////// m a i n //////
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -45,7 +48,7 @@ int main()
 	// }
 
 // T E S T ---- 4:
-	int fd = open("test3.txt", O_RDONLY);
+	int fd = open("test2.txt", O_RDONLY);
     if (fd == -1) {
         perror("Error opening file");
         return 1;
@@ -53,6 +56,7 @@ int main()
 
     char *line;
     int i = 4;
+	int j = 0;
 
     while (i > 0)
     {
@@ -60,12 +64,15 @@ int main()
         // if (line == NULL) {
         //     break; // Stop if there are no more lines or an error occurs
         // }
-        printf("MAIN: %s\n", line);
+        // printf("MAIN: %s\n", line);
         free(line); // Free the line to avoid memory leaks
         i--;
-		write(1,"aaaaaaa\n", 8);
+		j++;
+		// printf("J: %d\n", j);
+		// write(1,"aaaaaaa\n", 8);
     }
 	close(fd);
+	// printf("THIS IS THE END !!!!! %d\n", j);
 	return (0);
 }
 
