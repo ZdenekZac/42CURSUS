@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:04:46 by zac               #+#    #+#             */
-/*   Updated: 2024/08/06 13:05:27 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:11:55 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_bzero(void *s, size_t n);
 size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *str, int c);
-char	*ft_substr_start(char *s, int len);
+char	*ft_loop(char *buf, char *buffer, int fd);
 char	*ft_rest_start(char *temp);
 char	*ft_read_file(int fd, char *buffer);
 char	*ft_strdup(char *s);

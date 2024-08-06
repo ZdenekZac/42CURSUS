@@ -6,48 +6,33 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 18:55:09 by zac               #+#    #+#             */
-/*   Updated: 2024/08/06 13:17:57 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:52:12 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char    *ft_substr_start(char *s, int len)
-{
-    char    *start;
-	int     i;
-
-    start = malloc(sizeof(char) * (len + 2));
-	if (!start)
-        return (NULL);
-    i = 0;
-    while (i <= len)
-    {
-        start[i] = s[i];
-        i++;
-    }
-	start[i] = '\0';
-    return (start);
-}
-
 char	*ft_clear_line(char *temp)
 {
-	char			*line;
-	int				i;
+	int		i;
+	int		j;
+	char	*start;
 
 	i = 0;
 	while (temp[i] != '\n' && temp[i] != '\0')
 		i++;
-	line = ft_substr_start(temp, i);
-
-//
-
-
-//
-
-
-
-	return (line);
+	start = malloc(sizeof(char) * (i + 2));
+	if (!start)
+		return (NULL);
+	j = i;
+	i = 0;
+	while (i <= j)
+	{
+		start[i] = temp[i];
+		i++;
+	}
+	start[i] = '\0';
+	return (start);
 }
 
 char	*ft_rest_start(char *buff)
@@ -56,9 +41,9 @@ char	*ft_rest_start(char *buff)
 	int		i;
 
 	i = 0;
-	while (buff[i] != '\n' && buff[i] != '\0') 
+	while (buff[i] != '\n' && buff[i] != '\0')
 		i++;
-	if (buff[i] == '\n') 
+	if (buff[i] == '\n')
 	{
 		i++;
 		if (buff[i] == '\0')
@@ -67,7 +52,8 @@ char	*ft_rest_start(char *buff)
 			return (NULL);
 		}
 		rest_start = ft_strdup(&buff[i]);
-	} else 
+	}
+	else
 		rest_start = (NULL);
 	free(buff);
 	return (rest_start);
@@ -75,22 +61,28 @@ char	*ft_rest_start(char *buff)
 
 char	*ft_read_file(int fd, char *buffer)
 {
-	int		chars_read;	
 	char	*buf;
-	char	*temp;
 
-	chars_read = 1;
-	if (buffer == NULL) 
+	if (buffer == NULL)
 	{
-		buffer = (char *)malloc(sizeof(char)*1);
+		buffer = (char *)malloc(sizeof(char) * 1);
 		buffer[0] = '\0';
 	}
 	if (!buffer)
-		return NULL;
+		return (NULL);
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
-	while(chars_read > 0)
+	return (ft_loop(buf, buffer, fd));
+}
+
+char	*ft_loop(char *buf, char *buffer, int fd)
+{
+	char	*temp;
+	int		chars_read;
+
+	chars_read = 1;
+	while (chars_read > 0)
 	{
 		ft_bzero(buf, BUFFER_SIZE + 1);
 		chars_read = read(fd, buf, BUFFER_SIZE);
@@ -102,8 +94,8 @@ char	*ft_read_file(int fd, char *buffer)
 		}
 		temp = buffer;
 		buffer = ft_strjoin(buffer, buf);
-		free (temp);		
-		if(ft_strchr(buf, '\n') != NULL) 
+		free (temp);
+		if (ft_strchr(buf, '\n') != NULL)
 			break ;
 	}
 	free(buf);
@@ -113,14 +105,13 @@ char	*ft_read_file(int fd, char *buffer)
 char	*get_next_line(int fd)
 {
 	char			*line;
-	static 	char	*buffer;
+	static char		*buffer;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = ft_read_file(fd, buffer);
 	if (!buffer)
 		return (NULL);
-
 	line = ft_clear_line(buffer);
 	buffer = ft_rest_start(buffer);
 	return (line);
