@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 18:54:43 by zac               #+#    #+#             */
-/*   Updated: 2024/08/06 12:24:38 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:05:21 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,25 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 	}
 	str[i + j] = '\0';
+	return (str);
+}
+
+char	*ft_strdup(char *s)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = ft_strlen(s);
+	str = (char *)malloc(sizeof(*str) * (j + 1));
+	if (!str)
+		return (NULL);
+	while (i < j)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }

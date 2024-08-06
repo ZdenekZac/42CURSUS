@@ -6,7 +6,7 @@
 /*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:04:46 by zac               #+#    #+#             */
-/*   Updated: 2024/08/05 19:28:05 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:05:27 by zdoskoci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_substr_start(char *s, int len);
 char	*ft_rest_start(char *temp);
 char	*ft_read_file(int fd, char *buffer);
+char	*ft_strdup(char *s);
 
 #endif
