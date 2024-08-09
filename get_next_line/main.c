@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:24:22 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/08/05 16:34:26 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/08/05 22:07:30 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main()
 	// }
 
 // T E S T ---- 4:
-	int fd = open("test3.txt", O_RDONLY);
+	int fd = open("test.txt", O_RDONLY);
     if (fd == -1) {
         perror("Error opening file");
         return 1;
@@ -60,7 +60,7 @@ int main()
         // if (line == NULL) {
         //     break; // Stop if there are no more lines or an error occurs
         // }
-        printf("MAIN: %s\n", line);
+        printf("MAIN: -%s-\n", line);
         free(line); // Free the line to avoid memory leaks
         i--;
 		write(1,"aaaaaaa\n", 8);
