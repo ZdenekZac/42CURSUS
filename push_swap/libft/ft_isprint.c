@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 05:57:41 by zac               #+#    #+#             */
-/*   Updated: 2024/10/05 16:43:30 by zac              ###   ########.fr       */
+/*   Created: 2024/10/05 16:46:39 by zac               #+#    #+#             */
+/*   Updated: 2024/10/05 16:56:11 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_isprint(int c)
 {
-	return (c >= 0 && c <= 127);
+	if (c > 31 && c < 127)
+		return (c);
+	return (0);
 }
-
-// int	main(void)
+// int main()
 // {
-// 	int	input1 = '*';
-// 	if (ft_isascii(input1))
-// 		printf("\"%d\" TRUE\n", input1);
-// 	else
-// 		printf("\"%d\" FALSE\n", input1);
-// return (0);
+// 	int	x = 31;
+// 	if (ft_isprint(x))
+// 		printf("TRUE");
+// 	else printf("FALSE");
+// 	return (0);
 // }

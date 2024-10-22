@@ -5,36 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 16:26:16 by vmoroz            #+#    #+#             */
-/*   Updated: 2024/10/21 20:11:58 by zac              ###   ########.fr       */
+/*   Created: 2024/10/14 23:11:49 by zac               #+#    #+#             */
+/*   Updated: 2024/10/22 21:20:25 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libft.h"
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, unsigned int n)
-{
-	const char	*csrc;
-	char		*cdest;
+{	
+	size_t	len;
 
-	cdest = (char *)dest;
-	csrc = (const char *)src;
-	if (dest == NULL && src == NULL)
+	if ((dest == NULL && src == NULL) || n == 0)
 		return (dest);
-	if (src < dest)
-		while (n--)
-			cdest[n] = csrc[n];
+	len = 0;
+	if (dest == NULL) 
+	if (src > dest)
+	{
+		len = n;
+		while (len > 0)
+		{
+			len--;
+			((unsigned char *)dest)[len] = ((unsigned char *)src)[len];
+		}
+	}
 	else
-		while (n--)
-			*cdest++ = *csrc++;
+	{
+		len = 0;
+		while (len < n)
+		{
+			((unsigned char *)dest)[len] = ((unsigned char *)src)[len];
+			len++;
+		}
+	}
 	return (dest);
 }
 
-int	main(void)
-{
-	char src[] = "hey man whats up";
-	char dest[30];
-	ft_memmove(dest, src, 3);
-	printf("dest = %s\n", dest);
-	return (0);
-}
+// #include <stdio.h>
+// int main() {
+//     char dst[18];
+//     char src[] = "Hello, World!";
+// 	printf(" %p\n", (char *)ft_memmove(dst, src, sizeof(src)));
+//     printf("dst: %s\n", dst);
+
+//     return 0;
+// }
+// //norminette -R CheckForbiddenSourceHeader
+// //cc -Wall -Wextra -Werror

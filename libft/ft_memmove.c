@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 15:26:45 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/05/27 12:26:09 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/10/22 21:34:31 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	len;
 
-	len = 0;
+	if ((dest == NULL && src == NULL) || n == 0)
+		return (dest);
 	if (src < dest)
 	{
 		len = n;

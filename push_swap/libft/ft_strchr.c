@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 05:57:41 by zac               #+#    #+#             */
-/*   Updated: 2024/10/05 16:43:30 by zac              ###   ########.fr       */
+/*   Created: 2024/10/22 20:55:22 by zac               #+#    #+#             */
+/*   Updated: 2024/10/22 20:55:48 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+char	*ft_strchr(const char *str, int ch)
 {
-	return (c >= 0 && c <= 127);
+	
 }
-
-// int	main(void)
-// {
-// 	int	input1 = '*';
-// 	if (ft_isascii(input1))
-// 		printf("\"%d\" TRUE\n", input1);
-// 	else
-// 		printf("\"%d\" FALSE\n", input1);
-// return (0);
-// }

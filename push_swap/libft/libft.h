@@ -6,7 +6,7 @@
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 21:25:41 by zac               #+#    #+#             */
-/*   Updated: 2024/08/11 05:57:07 by zac              ###   ########.fr       */
+/*   Updated: 2024/10/22 20:55:05 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ void				ft_bzero(void *dest, size_t n);			//DONE
 void				*ft_calloc(size_t num, size_t size);	//DONE
 int					ft_isalnum(int c);						//DONE
 int					ft_isalpha(int c);						//DONE
-int					ft_isascii(int c);
-int					ft_isdigit(int c);
-int					ft_isprint(int c);
-void				*ft_memchr(const void *src, int chr, size_t n);
-int					ft_memcmp(void *str1, void *str2, int l);
-void				*ft_memcpy(void *dest, const void *src, size_t n);
-void				*ft_memmove(void *dest, const void *src, unsigned int n);
-void				*ft_memset(void *dest, int value, size_t count);
+int					ft_isascii(int c);						//DONE
+int					ft_isdigit(int c);						//DONE
+int					ft_isprint(int c);						//DONE
+void				*ft_memchr(const void *src, int chr, size_t n);		//DONE
+int					ft_memcmp(void *str1, const void *str2, size_t n);	//DONE
+void				*ft_memcpy(void *dest, const void *src, size_t n);	//DONE
+void				*ft_memmove(void *dest, const void *src,
+						unsigned int n); //DONE
+void				*ft_memset(void *dest, int value, size_t count);	//DONE
 char				*ft_strchr(const char *str, int ch);
 char				*ft_strdup(char *src);
 char				*ft_strjoin(char const *s1, char const *s2);

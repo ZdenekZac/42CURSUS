@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zdoskoci <zdoskoci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:07:48 by zdoskoci          #+#    #+#             */
-/*   Updated: 2024/05/29 21:47:30 by zdoskoci         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:49:30 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ char
 	size_t	i;
 	size_t	j;
 
-	if (!haystack || !needle)
+	if (!haystack && !needle)
 		return (NULL);
-	if (!needle || !needle[0])
+	if (!needle[0])
 		return ((char *)haystack);
 	i = 0;
 	while (haystack[i] && i < len)
 	{
 		j = 0;
-		while (haystack[i + j] && needle[j] && i + j < len
+		while (haystack[i + j] && needle[j] && (i + j) < len
 			&& haystack[i + j] == needle[j])
 			j++;
 		if (!needle[j])
@@ -35,33 +35,6 @@ char
 	}
 	return (NULL);
 }
-/*
-char	*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	if (little == NULL || little[0] == '\0')
-		return ((char *)big);
-	while (big[i] != '\0' && i < len)
-	{
-		if (big[i] == little[j])
-		{
-			while (big[i + j] == little[j])
-			{
-				if (little[j + 1] == '\0')
-					return ((char *) big + i);
-				j++;
-			}
-			j = 0;
-		}
-		i++;
-	}
-	return (NULL);
-}
-*/
 /*
 #include <stdio.h>
 int main() {

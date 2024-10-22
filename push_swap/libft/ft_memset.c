@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 05:57:41 by zac               #+#    #+#             */
-/*   Updated: 2024/10/05 16:43:30 by zac              ###   ########.fr       */
+/*   Created: 2024/10/22 20:40:34 by zac               #+#    #+#             */
+/*   Updated: 2024/10/22 20:54:27 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	*ft_memset(void *dest, int value, size_t count)
 {
-	return (c >= 0 && c <= 127);
-}
+	char	*p;
 
-// int	main(void)
-// {
-// 	int	input1 = '*';
-// 	if (ft_isascii(input1))
-// 		printf("\"%d\" TRUE\n", input1);
-// 	else
-// 		printf("\"%d\" FALSE\n", input1);
-// return (0);
+	p = (char *)dest;
+	while (count > 0)
+	{
+		p[count - 1] = value;
+		count--;
+	}
+	return (dest);
+}
+// #include <stdio.h>
+// int main() {
+// 	char s[] = "hello";
+// 	printf("%s\n", s);
+// 	ft_memset(s, 'B', 3);
+// 	printf("%s\n", s);
+// 	printf("%s\n", (char *)ft_memset(s, 'X', 5));
+//     return (0);
 // }
