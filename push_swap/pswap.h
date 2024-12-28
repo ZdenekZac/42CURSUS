@@ -6,7 +6,7 @@
 /*   By: zac <zac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 22:23:57 by zac               #+#    #+#             */
-/*   Updated: 2024/12/05 11:05:28 by zac              ###   ########.fr       */
+/*   Updated: 2024/12/22 00:35:23 by zac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,6 @@ void	parameters(long *stack_a, long *stack_b, int *nums_stack_a,
 void	sort_3_nums(long *stack_a, int	*nums_in_a);
 void	sort_5_nums(long *stack_a, long *stack_b, int *nums_stack_a,
 			int *nums_stack_b);
+void	sort_beyond_3_and_5_nums(long *stack_a, long *stack_b,
+			int *nums_in_stack_a, int *nums_in_stack_b);
 #endif
