@@ -93,3 +93,25 @@ int	standart_input(long *stack_a, int *nums_in_stack_a, char **argv)
 	}
 	return (0);
 }
+
+int		separate_input_numbers(long *stack_a, int *nums_stack_a, char **argv)
+{
+	char	**nums_list;
+
+	nums_list = NULL;
+	if (nums_stack_a[0] == 1)
+	{
+		if (nums_input(stack_a, nums_stack_a, argv, nums_list) == -1)
+			return (-1);
+	}
+	else
+	{
+		if (standart_input(stack_a, nums_stack_a, argv) == -1)
+			return (-1);
+	}
+	if (repeated_numbers(stack_a, nums_stack_a[1]) == -1)
+		return (-1);
+	if (nums_limits(stack_a, nums_stack_a[1] == -1))
+		return (-1);
+	return (0);
+}
