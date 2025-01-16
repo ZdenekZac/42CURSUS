@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *str)
 {
-	int i;
+	int	i;
 	int	neg;
 	int	res;
 
@@ -49,7 +49,8 @@ void	free_string(char **str)
 	}
 }
 
-int	nums_input(long *stack_a, int *nums_in_stack_a, char **argv, char **nums_list)
+int	nums_input(long *stack_a, int *nums_in_stack_a, char **argv,
+		char **nums_list)
 {
 	int	i;
 	int	nums;
@@ -94,7 +95,7 @@ int	standart_input(long *stack_a, int *nums_in_stack_a, char **argv)
 	return (0);
 }
 
-int		separate_input_numbers(long *stack_a, int *nums_stack_a, char **argv)
+int	separate_input_numbers(long *stack_a, int *nums_stack_a, char **argv)
 {
 	char	**nums_list;
 

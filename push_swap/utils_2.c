@@ -56,7 +56,7 @@ int	nums_limits(long *stack_a, int nums_in_stack_a)
 	i = 0;
 	while (i < nums_in_stack_a)
 	{
-		if ((stack_a[i] > 2147483647) || (stack_a[i] < -2147483648))
+		if (stack_a[i] > 2147483647L || stack_a[i] < -2147483647L - 1)
 		{
 			write(1, "Error\n", 6);
 			return (-1);

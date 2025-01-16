@@ -42,7 +42,8 @@ int		nums_limits(long *stack_a, int nums_in_stack_a);
 int		repeated_numbers(long *stack_a, int nums_in_stack_a);
 int		only_nums_in_stack(char *nums);
 int		stack_size(int argc, char **argv);
-int		seperate_input_numbers(long *stack_a, int *nums_stack_a, char **argv);
+int		separate_input_numbers(long *stack_a, int *nums_stack_a, char **argv);
 int		is_stack_sorted(long *stack_a, int *nums_in_stack_a);
+char	**ft_split(char const *str, char c);
 
 #endif

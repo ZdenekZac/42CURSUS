@@ -56,3 +56,39 @@ void	check_parameter(int argc, char **argv, int *nums_in_stack_a,
 		i++;
 	}
 }
+
+void	set_inputs(int *nums_in_stack_a, int *nums_in_stack_b, int argc)
+{
+	nums_in_stack_a[0] = argc - 1;
+	nums_in_stack_a[1] = nums_in_stack_a[0];
+	*nums_in_stack_b = 0;
+}
+
+int	main(int argc, char **argv)
+{
+	long	*stack_a;
+	long	*stack_b;
+	int		*nums_in_stack_a;
+	int		*nums_in_stack_b;
+
+	nums_in_stack_a = (int *)malloc(2 * sizeof(int));
+	nums_in_stack_b = (int *)malloc(sizeof(int));
+	check_parameter(argc, argv, nums_in_stack_a, nums_in_stack_b);
+	set_inputs(nums_in_stack_a, nums_in_stack_b, argc);
+	stack_a = (long *)malloc(sizeof(long) * stack_size(argc, argv));
+	stack_b = (long *)malloc(sizeof(long) * stack_size(argc, argv));
+	if ((separate_input_numbers(stack_a, nums_in_stack_a, argv) == -1)
+		|| (is_stack_sorted(stack_a, nums_in_stack_a) == 0))
+		free_stack(stack_a, stack_b, nums_in_stack_a, nums_in_stack_b);
+	if ((nums_in_stack_a[1] == 2) && (stack_a[0] > stack_a[1]))
+		rotate_stack_a(stack_a, nums_in_stack_a);
+	else if (nums_in_stack_a[1] == 3)
+		sort_3_nums(stack_a, nums_in_stack_a);
+	else if (nums_in_stack_a[1] == 5)
+		sort_5_nums(stack_a, stack_b, nums_in_stack_a, nums_in_stack_b);
+	else
+		sort_beyond_3_and_5_nums(stack_a, stack_b, nums_in_stack_a,
+			nums_in_stack_b);
+	free_stack(stack_a, stack_b, nums_in_stack_a, nums_in_stack_b);
+	return (0);
+}
